@@ -9,7 +9,7 @@ namespace LearnTodayWebAPI.Models
     {
         [Key]
         //use this to add custom values to PK
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CourseId { get; set; }
         public string Title { get; set; }
         public float Fees { get; set; }
