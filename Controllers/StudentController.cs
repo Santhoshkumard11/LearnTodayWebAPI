@@ -1,50 +1,75 @@
 ﻿using LearnTodayWebAPI.DAL;
 using LearnTodayWebAPI.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Web.Http.Description;
 
 namespace LearnTodayWebAPI.Controllers
 {
-    public class AdminController : ApiController
+    public class StudentController : ApiController
     {
+
         private LearnTodayWebAPIContext db = new LearnTodayWebAPIContext();
 
-        // GET: api/Courses
+        // GET: api/Student
         public IEnumerable<Course> GetAllCourses()
         {
-            return db.Courses;
+            return db.Courses.OrderBy(c => c.StartDate);
         }
 
-        // GET: api/Courses/5
-        [ResponseType(typeof(Course))]
-        public HttpResponseMessage GetCourseById(int id)
+        // POST: api/Student
+        public HttpResponseMessage PostStudents([FromBody]Student student)
         {
-            Course course = db.Courses.Find(id);
 
-            if (course == null)
+            try
             {
-                return GenerateResponseMessage(400, $"Course with Id {id} not found!!");
+
+                db.Students.Add(student);
+                db.SaveChanges();
+
+            }
+            catch (Exception ex)
+            {
+
+                return GenerateResponseMessage(400,ex);
             }
 
-            return GenerateResponseMessage(200, course);
+            return GenerateResponseMessage(202, student);
+
         }
 
-        protected override void Dispose(bool disposing)
+
+        // DELETE: api/Student/5
+        public HttpResponseMessage DeleteStudent(int id)
         {
-            if (disposing)
+            try
             {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+                Student queriedStudent = db.Students.FirstOrDefault(s => s.EndrolemnentId == id);
 
-        private bool CourseExists(int id)
-        {
-            return db.Courses.Count(c => c.CourseId == id) > 0;
+
+                if (queriedStudent == null)
+                {
+                    return GenerateResponseMessage(400, $"No enrollment information found");
+                }
+                else
+                {
+                    db.Students.Remove(queriedStudent);
+                    db.SaveChanges();
+
+                    return GenerateResponseMessage(202, $"Student with Id {id} deleted successfully!!");
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+
+
         }
 
         //create a method which will return a response by taking in the status code and message

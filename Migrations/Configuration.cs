@@ -21,8 +21,8 @@
 
             context.Courses.AddRange(new List<Course>()
             {
-                new Course {Id=1002, Title=".Net Core", Fees=(float)9000.0,Description=".Net Core is a framework used for creating cross platform application",Trainer="Joe",StartDate=DateTime.Now,StudentsList=new List<Student>()},
-                new Course {Id=1003, Title="Angular", Fees=(float)3000.0,Description="Angular is a platform and framework for building single page client application",Trainer="Saw",StartDate=DateTime.Now,StudentsList=new List<Student>()}
+                new Course {CourseId=1002, Title=".Net Core", Fees=(float)9000.0,Description=".Net Core is a framework used for creating cross platform application",Trainer="Joe",StartDate=DateTime.Now,StudentsList=new List<Student>()},
+                new Course {CourseId=1003, Title="Angular", Fees=(float)3000.0,Description="Angular is a platform and framework for building single page client application",Trainer="Saw",StartDate=DateTime.Now,StudentsList=new List<Student>()}
             }
             ) ;
         }

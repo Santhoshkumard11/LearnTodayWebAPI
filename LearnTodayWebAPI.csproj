@@ -164,13 +164,14 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="DAL\LearnTodayWebAPIContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202102060619525_initial-models.cs" />
-    <Compile Include="Migrations\202102060619525_initial-models.designer.cs">
-      <DependentUpon>202102060619525_initial-models.cs</DependentUpon>
+    <Compile Include="Migrations\202102060734293_initial-models.cs" />
+    <Compile Include="Migrations\202102060734293_initial-models.Designer.cs">
+      <DependentUpon>202102060734293_initial-models.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
@@ -263,8 +264,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202102060619525_initial-models.resx">
-      <DependentUpon>202102060619525_initial-models.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202102060734293_initial-models.resx">
+      <DependentUpon>202102060734293_initial-models.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
