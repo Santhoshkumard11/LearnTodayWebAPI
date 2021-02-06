@@ -1,12 +1,10 @@
 using LearnTodayWebAPI.Models;
-using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
 
 namespace LearnTodayWebAPI.DAL
 {
-    public class LearnTodayWebAPI : DbContext
+    public class LearnTodayWebAPIContext : DbContext
     {
         // Your context has been configured to use a 'LearnTodayWebAPI' connection string from your application's 
         // configuration file (App.config or Web.config). By default, this connection string targets the 
@@ -14,7 +12,7 @@ namespace LearnTodayWebAPI.DAL
         // 
         // If you wish to target a different database and/or database provider, modify the 'LearnTodayWebAPI' 
         // connection string in the application configuration file.
-        public LearnTodayWebAPI()
+        public LearnTodayWebAPIContext()
             : base("name=LearnTodayWebAPIContext")
         {
         }
@@ -25,7 +23,7 @@ namespace LearnTodayWebAPI.DAL
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
 
         public DbSet<Course> Courses { get; set; }
-        public DbSet<Student> Students{ get; set; }
+        public DbSet<Student> Students { get; set; }
         public DbSet<Trainer> Tainers { get; set; }
 
 

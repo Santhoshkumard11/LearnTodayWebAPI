@@ -1,8 +1,8 @@
+using LearnTodayWebAPI.Areas.HelpPage.ModelDescriptions;
+using LearnTodayWebAPI.Areas.HelpPage.Models;
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using LearnTodayWebAPI.Areas.HelpPage.ModelDescriptions;
-using LearnTodayWebAPI.Areas.HelpPage.Models;
 
 namespace LearnTodayWebAPI.Areas.HelpPage.Controllers
 {
